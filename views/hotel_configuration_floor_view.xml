@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_hotel_floor_tree" model="ir.ui.view">
+        <field name="name">hotel.floor.tree</field>
+        <field name="model">hotel.configuration.floor</field>
+        <field name="arch" type="xml">
+            <tree string="Hotel Floors">
+                <field name="name"/>
+                <field name="manager_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hotel_floor_form" model="ir.ui.view">
+        <field name="name">hotel.floor.form</field>
+        <field name="model">hotel.configuration.floor</field>
+        <field name="arch" type="xml">
+            <form string="Hotel Floor">
+                <group>
+                    <field name="name"/>
+                    <field name="manager_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

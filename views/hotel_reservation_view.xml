@@ -1,0 +1,69 @@
+<odoo>
+    <record id="view_hotel_reservation_form" model="ir.ui.view">
+        <field name="name">hotel.reservation.form</field>
+        <field name="model">hotel.reservation</field>
+        <field name="arch" type="xml">
+            <form string="Reservation">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,checkin,checkout,cancelled"/>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" />
+                    <button name="action_checkin" type="object" string="Check In" class="btn-primary" />
+                    <button name="action_checkout" type="object" string="Check Out" class="btn-secondary" />
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-default" />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="invoice_address_id"/>
+                        </group>
+                        <group>
+                            <field name="order_date"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Room Details">
+                            <field name="room_detail_ids">
+                                <tree editable="bottom" create="true">
+                                    <field name="room_id"/>
+                                    <field name="checkin_date"/>
+                                    <field name="checkout_date"/>
+                                    <field name="duration"/>
+                                    <field name="unit_of_measure"/>
+                                    <field name="rent"/>
+                                    <field name="sub_total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <footer>
+                        <group>
+                            <field name="total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hotel_reservation_tree" model="ir.ui.view">
+        <field name="name">hotel.reservation.tree</field>
+        <field name="model">hotel.reservation</field>
+        <field name="arch" type="xml">
+            <tree string="Reservations">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="order_date"/>
+                <field name="state"/>
+                <field name="total" />
+            </tree>
+        </field>
+    </record>
+</odoo>

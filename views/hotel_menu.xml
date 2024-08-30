@@ -1,0 +1,91 @@
+<odoo>
+    <!-- parent -->
+    <menuitem id="menu_hotel_management_root"
+        name="Hotel Management"
+        sequence="100" />
+
+    <!-- reservation -->
+    <record id="action_hotel_reservation" model="ir.actions.act_window">
+        <field name="name">Reservation</field>
+        <field name="res_model">hotel.reservation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hotel_reservation"
+        name="Reservation"
+        parent="menu_hotel_management_root"
+        action="action_hotel_reservation"   
+        sequence="20" />
+
+    <!-- reporting -->
+    <record id="action_hotel_reporting_wizard" model="ir.actions.act_window">
+        <field name="name">Room Booking Report</field>
+        <field name="res_model">hotel.reporting.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    
+    <menuitem id="menu_hotel_reporting"
+        name="Reporting"
+        parent="menu_hotel_management_root"
+        action="action_hotel_reporting_wizard"
+        sequence="30"/>
+    
+    <!-- configuration -->
+    <menuitem id="menu_hotel_configuration"
+        name="Configuration"
+        parent="menu_hotel_management_root"
+        sequence="40" />
+    
+    <!-- configuration amenity -->
+    <record id="action_hotel_amenity" model="ir.actions.act_window">
+        <field name="name">Amenity</field>
+        <field name="res_model">hotel.configuration.amenity</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    
+    <menuitem id="menu_hotel_amenity"
+        name="Amenity"
+        parent="menu_hotel_configuration"
+        action="action_hotel_amenity"
+        sequence="10" />
+
+    <!-- configuration floor -->
+    <record id="action_hotel_floor" model="ir.actions.act_window">
+        <field name="name">Floors</field>
+        <field name="res_model">hotel.configuration.floor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hotel_floor"
+        name="Floor"
+        parent="menu_hotel_configuration"
+        action="action_hotel_floor"
+        sequence="20" />
+
+    <!-- configuration room -->
+    <record id="action_hotel_room" model="ir.actions.act_window">
+        <field name="name">Rooms</field>
+        <field name="res_model">hotel.configuration.room</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hotel_room"
+        name="Room"
+        parent="menu_hotel_configuration"
+        action="action_hotel_room"
+        sequence="30" />
+
+    <!-- configuration service -->
+    <record id="action_hotel_services" model="ir.actions.act_window">
+        <field name="name">Services</field>
+        <field name="res_model">hotel.configuration.service</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hotel_room_services"
+        name="Services"
+        parent="menu_hotel_configuration"
+        action="action_hotel_services"
+        sequence="40" />
+</odoo>
