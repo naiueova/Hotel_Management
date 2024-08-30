@@ -43,11 +43,9 @@
                         </page>
                     </notebook>
 
-                    <footer>
-                        <group>
-                            <field name="total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                        </group>
-                    </footer>
+                    <group>
+                        <field name="total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    </group>
                 </sheet>
             </form>
         </field>
